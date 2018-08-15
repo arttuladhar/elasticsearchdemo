@@ -1,0 +1,24 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Getting Started: Serving Web Content</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<p th:text="${message}" />
+<ul>
+  <li><a href="/listings?query=all">All Listings</a></li>
+  <li><a href="/listings?query=sales">Sale Listings</a></li>
+  <li><a href="/listings?query=housing-mn">Housing in Minnesota</a></li>
+  <li><a href="/listing/{id}">Listing by ID</a></li>
+</ul>
+<hr/>
+  <form action="/listings" method="get">
+    <label for="searchDescription">Description</label>
+    <input id="searchDescription" th:type="text" th:name="description"/>
+    <input th:type="hidden" th:name="query" th:value="desc">
+    <button type="submit">Search</button>
+  </form>
+</ul>
+</body>
+</html>

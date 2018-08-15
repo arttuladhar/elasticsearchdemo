@@ -1,0 +1,4 @@
+elastic:
+  url: localhost
+  port: 9200
+  http.scheme: http

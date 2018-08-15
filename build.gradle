@@ -1,0 +1,44 @@
+buildscript {
+	ext {
+		springBootVersion = '2.0.4.RELEASE'
+		elasticSearchVersion = "6.3.2"
+	}
+	repositories {
+		mavenCentral()
+	}
+	dependencies {
+		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+	}
+}
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'org.springframework.boot'
+apply plugin: 'io.spring.dependency-management'
+
+group = 'com.aayushtuladhar.demo'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = 1.8
+
+repositories {
+	mavenCentral()
+}
+
+
+dependencies {
+	compile('org.springframework.boot:spring-boot-starter-actuator')
+	compile('org.springframework.boot:spring-boot-starter-web')
+	compile("org.springframework.boot:spring-boot-starter-thymeleaf")
+
+	compile "org.elasticsearch.client:elasticsearch-rest-high-level-client:${elasticSearchVersion}"
+	compile "org.elasticsearch:elasticsearch:${elasticSearchVersion}"
+
+	compile group: 'com.opencsv', name: 'opencsv', version: '4.2'
+	compile("com.google.guava:guava:19.0")
+	compile group: 'com.googlecode.json-simple', name: 'json-simple', version: '1.1.1'
+
+
+	runtime('org.springframework.boot:spring-boot-devtools')
+	compileOnly('org.projectlombok:lombok')
+	testCompile('org.springframework.boot:spring-boot-starter-test')
+}
